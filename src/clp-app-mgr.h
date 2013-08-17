@@ -1,10 +1,6 @@
 /** \file clp-app-mgr.h
  * \brief Application Manager System Object for Celunite Linux Platform
- * 
- * \author Gaurav Roy [gaurav.roy@celunite.com]
- * \author Abhiraj Butala [abhiraj.butala@celunite.com]
- * \author Kaustubh Atrawalkar [kaustubh.atrawalkar@celunite.com]
- * 
+ *
  * The APIs to be used by the applications to access application manager are declared here. 
  */
 

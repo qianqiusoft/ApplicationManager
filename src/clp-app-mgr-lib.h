@@ -1,9 +1,5 @@
 /** \file clp-app-mgr-lib.h
- * \brief Application Manager Library header for Celunite Linux Platform
- * 
- * \author Gaurav Roy [gaurav.roy@celunite.com]
- * \author Abhiraj Butala [abhiraj.butala@celunite.com]
- * \author Kaustubh Atrawalkar [kaustubh.atrawalkar@celunite.com]
+ * \brief Application Manager Library header for Linux Platform
  * 
  * The APIs to be used by the application developer are declared here. 
  */

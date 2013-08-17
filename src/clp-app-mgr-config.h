@@ -1,9 +1,6 @@
 /** \file clp-app-mgr-config.h
- * \brief Application Manager Config Header for Celunite Linux Platform
+ * \brief Application Manager Config Header for Linux Platform
  *
- * \author Abhiraj Butala [abhiraj.butala@celunite.com]
- * \author Kaustubh Atrawalkar [kaustubh.atrawalkar@celunite.com]
- * 
  * This file contains the MACROS and other global declarations required for the Application Manager Library and Daemon.
  */
 

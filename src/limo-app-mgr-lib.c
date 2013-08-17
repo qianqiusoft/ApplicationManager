@@ -1,9 +1,7 @@
 /** \file limo-app-mgr-lib.c
  * 
  * \brief Application Manager Library implementation for LiMo App Manager
- * 
- * \author Kaustubh Atrawalkar [kaustubh.atrawalkar@celunite.com]
- * 
+ *
  * The APIs to be used by the application developer are implemented here.
  */
 
