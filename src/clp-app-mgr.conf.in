@@ -1,0 +1,15 @@
+<!DOCTYPE busconfig PUBLIC
+ "-//freedesktop//DTD D-BUS Bus Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
+<busconfig>
+
+	<servicedir>@datadir1@/dbus-1/system-services</servicedir>
+
+        <policy user="root">
+                <allow own="org.clp.appmanager"/>
+                <allow send_destination="org.clp.appmanager"/>
+                <allow send_interface="org.clp.appmanager"/>
+        </policy>
+
+</busconfig>
+

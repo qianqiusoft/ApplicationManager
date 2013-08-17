@@ -1,0 +1,980 @@
+2009-05-11  Kaustubh Atrawalkar <kaustubh.atrawalkar@azingo.com>
+
+	* src/clp-app-mgr.conf.in: Updating service dir as per dbus 1.2.3
+	specification.
+
+2009-05-11  Kaustubh Atrawalkar <kaustubh.atrawalkar@azingo.com>
+	
+	* src/Makefile.am: Removed unnecessary .service file for dbus as no
+	more daemon part 
+	* src/clp-app-mgr.service.in: Removed. 
+
+2009-04-14  Chirayu Shah  <chirayu.shah@azingo.com>
+
+	* tools/clp-app-mgr-app-launcher.c (main):
+		Return code returned instead of 0.
+
+2009-04-06  Chirayu Shah <chirayu.shah@azingo.com>
+
+	* src/limo-app-mgr-lib.c (clp_app_mgr_handle_mime):
+		Fixed 2 memory leaks.
+
+2009-04-02  Chirayu Shah <chirayu.shah@azingo.com>
+
+	* src/limo-app-mgr-lib.c (ClpAppMgrAppLaunchWithArgs),
+	(ClpAppMgrAppLaunchWithArgv), (clp_app_mgr_power_off):
+	Poweroff fix added, re-spawning of app stopped after shutdown.sh
+	called.
+
+2009-04-01  Chirayu Shah <chirayu.shah@azingo.com>
+
+	* src/limo-app-mgr-lib.c (clp_app_mgr_get_installed_themes),
+	(read_theme_list): Fixed 2 memory leaks.
+
+2009-03-24  Chirayu Shah <chirayu.shah@azingo.com>
+
+	* src/limo-app-mgr-lib.c (clp_app_mgr_handle_mime),
+	(clp_app_mgr_handle_string), (clp_app_mgr_handle_file):
+	Service discovery part added for the case of middleware modules.
+
+2009-03-12  Chirayu Shah <chirayu.shah@azingo.com>
+
+	* src/limo-app-mgr-lib.c (clp_app_mgr_init): Check added for ".so"
+	suffix in the "name" parameter.
+
+2009-03-02  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* Makefile.am: Doxygen compilation added.
+	* configure.ac: AmpLog dependancy and configuration.
+	* docs/Doxyfile: Removed.
+	* docs/Doxyfile.in: Added new .in file for doxygen.
+	* images/Makefile.am: Fixed removing ~ files in make cleans.
+	* src/Makefile.am: AmpLog cflags and libs dependency fixes.
+	* src/clp-app-mgr-config.h: Moved to amplog.
+	* src/clp-app-mgr-lib.h: appropriate naming convention for variables.
+	* src/clp-app-mgr.h: MAX_SIZE changed from 64 to 256
+	* src/limo-app-mgr-lib.c (clp_app_mgr_init): amp_log_init() added.
+	(ClpAppMgrAppLaunchWithArgs), (ClpAppMgrAppLaunchWithArgv),
+	(message_func), (clp_app_mgr_handle_mime),
+	(clp_app_mgr_wm_get_screen_exclusive),
+	(clp_app_mgr_wm_get_top_window_of_application),
+	(clp_app_mgr_wm_release_screen),
+	(clp_app_mgr_wm_restore_application),
+	(clp_app_mgr_wm_restore_window),
+	(clp_app_mgr_wm_minimize_application),
+	(clp_app_mgr_wm_minimize_window),
+	(clp_app_mgr_wm_move_resize_window),
+	(clp_app_mgr_wm_set_window_priority),
+	(clp_app_mgr_wm_toggle_fullscreen_window),
+	(clp_app_mgr_wm_fullscreen_window): Logging & typos fixes.
+	* tools/Makefile.am: Removing depricated compilations.
+	* tools/clp-app-mgr-app-launcher.c: Removing redendant code.
+	* tools/pid-to-name.c: No Longer required. removing.
+	* tools/set-log-level.c: No longer required. removing.
+
+2009-02-25  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* src/limo-app-mgr-lib.c (clp_app_mgr_close_by_red_key): Moving to
+	X-RedKeyKill.
+
+2009-02-12  Chirayu Shah  <chirayu.shah@azingo.com>
+
+	* src/limo-app-mgr-lib.c (clp_app_mgr_close_by_name): Stop singal
+	sent before killing and application. Sleep of 2 sec added before
+	killing app.
+
+2009-02-10 Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com> 
+
+	* src/limo-app-mgr-lib.c (clp_app_mgr_close_by_red_key): Stop singal
+	sent before killing and application. Sleep of 2 sec added before
+	killing app.
+
+2009-02-06 Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com> 
+
+	* src/limo-app-mgr-lib.c (clp_app_mgr_close_by_red_key): String
+	compareing function issue fixed.
+
+2009-02-04 Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* src/clp-app-mgr-lib.h:
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_close_by_red_key): New function
+	added for killing application on red key press.
+
+2009-01-29  Chirayu Shah  <chirayu.shah@azingo.com>
+
+	* src/limo-app-mgr-lib.c: Memory leaks related to g_strconcat fixed.
+
+2009-01-28  Chirayu Shah  <chirayu.shah@azingo.com>
+
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_handle_file): g_strsplit error
+	fixed. Bug fix for #7919.
+
+2009-01-22  Chirayu Shah  <chirayu.shah@azingo.com>
+
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_handle_file): Warning message
+	added for Unsupported Content. Fix for bug #7586.
+
+2009-01-19  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* src/clp-app-mgr-config.h:
+	* src/limo-app-mgr-lib.c: (app_get_dbus_proxy), (clp_app_mgr_exec),
+	(ClpAppMgrAppLaunchWithArgs), (clp_app_mgr_exec_application),
+	(ClpAppMgrAppLaunchWithArgv), (clp_app_mgr_exec_argv),
+	(clp_app_mgr_stop), (clp_app_mgr_restore), (clp_app_mgr_close),
+	(clp_app_mgr_handle_mime),
+	(clp_app_mgr_wm_register_focus_lost_handler),
+	(clp_app_mgr_power_off), (print_me):
+	* tools/clp-app-mgr-app-launcher.c: (main):
+	* tools/pid-to-name.c:
+	* tools/set-log-level.c: (main): Code cleanups, #defines,
+	documentation and error logging.
+
+2009-01-19  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_close_by_name): Application
+	close by name fixed. Sending Kill on instance id. 
+
+2009-01-16  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_register_death_handler),
+	(clp_app_mgr_register_stop_handler),
+	(clp_app_mgr_register_rotate_handler),
+	(clp_app_mgr_register_exec_handler),
+	(clp_app_mgr_wm_register_focus_gained_handler): Removing the
+	conditional after init registration of handlers.
+
+2009-01-16  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* src/clp-app-mgr.h: Added new flag for immortality in ActiveApps
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_get_active_apps): Sending
+	immortal flag through get_active_apps
+
+2008-01-09  Chirayu Shah  <chirayu.shah@azingo.com>
+
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_power_off): shutdown.sh sript
+	called from this function.
+
+2009-01-02  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* appmgr.pc.in: Freezemgr dependancy fixed.
+
+2008-12-31  Kaustubh Atrawalkar <kaustubh.atrawalkar@azingo.com>
+
+	* appmgr.pc.in: Freezemgr support added.
+	* configure.ac: Freezemgr cflags and configre options
+	* src/Makefile.am: Freezmgr flags.
+	* src/clp-app-mgr-lib.h:
+	* src/limo-app-mgr-lib.c: (connect_to_restoredaemon),
+	(restore_app), (freezeme): Freezemgr support added
+
+2008-12-31  Chirayu Shah  <chirayu.shah@azingo.com>
+
+	* configure.ac: Version modified.
+	* appmgr.pc.in: Package check added for	appids and applib.
+
+2008-12-30  Kaustubh Atrawalkar <kaustubh.atrawalkar@azingo.com>
+
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_handle_file):
+	* src/clp-app-mgr-lib.h:
+	clp_app_mgr_handle_file defination added.
+
+2008-12-30  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* tools/Makefile.am: appmgr-ids & noti dependancy added.
+
+2008-12-26  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* src/limo-app-mgr-lib.c: (app_get_dbus_proxy):New function added for
+	getting am proxy.
+	(clp_app_mgr_init): app_id & inst_id refectched from gconf.
+	(AppMgrAppLaunchWithArgs), (AppMgrAppLaunchWithArgv): Functions
+	supporting the with args & with argv format for exec.
+	(clp_app_mgr_close):
+
+2008-12-19  Kaustubh Atrawalkar <kaustubh.atrawalkar@azingo.com>
+
+	* Makefile.am:
+	* src/Makefile.am:
+	* tools/Makefile.am: Maintainer-clean added.
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_init): Temp fix for running
+	executables.
+
+2008-08-07  Chirayu Shah  <chirayu.shah@azingo.com>
+
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_handle_file),
+	(clp_app_mgr_handle_string): Functions fixed,
+	now it passes only service name to invoke function instead of both
+	service name and service menu.
+	Fix for Bug #5090.
+
+2008-08-04  Chirayu Shah  <chirayu.shah@azingo.com>
+
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_get_application_instance_info):
+	Fix for Bug #5152. Case for invalid instance_name handled.
+	Param Error checks handled for other functions too.
+
+2008-08-04  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* tools/set-log-level.c: (main): Removed confusing prints for output.
+
+2008-08-04  Chirayu Shah  <chirayu.shah@azingo.com>
+
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_get_services),
+	(clp_app_mgr_handle_string), (clp_app_mgr_handle_file):
+	Functions modified to support "X-Services"
+
+2008-08-01  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_init), (clp_app_mgr_exec),
+	(clp_app_mgr_exec_application), (clp_app_mgr_exec_argv):
+	Dbus Interface creatation logic changed. For single instance taken as
+	appname. For multi instance appname<instId>
+
+2008-08-01  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* src/limo-app-mgr-lib.c: 
+	(clp_app_mgr_init):
+	(clp_app_mgr_exec),(clp_app_mgr_exec_application),(clp_app_mgr_exec_argv):
+	(clp_app_mgr_stop), (clp_app_mgr_restore), (clp_app_mgr_close),
+	(clp_app_mgr_send_message): Dbus interface created directed to per
+	instance of the application. Handled in all of the above functions
+	accordingly.
+
+2008-07-30  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* src/limo-app-mgr-lib.c: 
+	(clp_app_mgr_async_init),(clp_app_mgr_exec),
+	(clp_app_mgr_exec_application), (clp_app_mgr_exec_argv),
+	(clp_app_mgr_stop), (clp_app_mgr_close_by_name),
+	(clp_app_mgr_close), 
+	(clp_app_mgr_get_active_apps),
+	(clp_app_mgr_get_num_of_active_apps),
+	(clp_app_mgr_get_num_of_active_instances_of_app),
+	(clp_app_mgr_is_app_active), (clp_app_mgr_get_application_id),
+	(clp_app_mgr_get_active_instances_of_app): Return code values
+	respected and checked for errors.
+	(clp_app_mgr_init): Instance name changed. Dbus Connection clean up
+	added.
+	(clp_app_mgr_get_application_instance_info),
+	(clp_app_mgr_set_visibility),: Gconf dir changed to appmgr.
+
+2008-07-29  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* tools/set-log-level.c: (main): dbus_connection_flush added to force
+	the signal send.
+
+2008-07-29  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* src/clp-app-mgr-config.h: Renamed the signal name Debug->LogLevel
+	* src/limo-app-mgr-lib.c: (message_func):
+	* tools/set-log-level.c: (main):
+
+2008-07-28  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* src/clp-app-mgr-config.h:Added new Signal for runtime debug.
+	* src/limo-app-mgr-lib.c: (message_func): Debug signal handled.
+	* tools/Makefile.am: Updated to compile set-log-level.
+	* tools/set-log-level.c: New tool added to set log level.
+
+2008-07-28  Chirayu Shah <chirayu.shah@azingo.com>
+		Reviewed By: Kaustubh Atrawalkar
+
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_get_active_apps):
+	Fixed the function. Handled the case for appmgr apps and not for LiMo
+	specific apps. ( Fix for Bug #4954 ).
+
+2008-07-25  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_stop): STOP signal send to the
+	corresponing application. 
+	(clp_app_mgr_get_installed_apps):Blank Name or ExecName handled.
+	(clp_app_mgr_send_message): Dbus interface corrected.
+
+2008-07-24  Chirayu Shah <chirayu.shah@azingo.com>
+		Reviewed By: Kaustubh Atrawalkar
+
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_get_services),
+	  Fixed the function. Now it returns a GSList with data part of the
+	  type ClpAppMgrServices. ( Fix for Bug #4867).
+
+2008-07-24  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* src/limo-app-mgr-lib.c:
+	(clp_app_mgr_exec_application): Removed exiting of app if launch fails.
+	Returning proper values.
+	(clp_app_mgr_exec_argv): Appending args fixed.
+	* tools/Makefile.am: app-launcher build fixed.
+
+2008-07-23  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_init): 
+	(clp_app_mgr_exec_argv): Updated to pass the arguments to
+	AppMgrAppLaunchWithArgv
+
+2008-07-23  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_get_instance_name):Fixed to
+	pickup the instance name from cached.
+	(clp_app_mgr_get_name): Fixed to pickup the application name from
+	cahced.
+	(clp_app_mgr_init): Removed the redundant gconf filling and Code
+	cleanup.
+	(clp_app_mgr_get_app_id): Added the doxygen comments.
+	(message_func): Fluke prints and comments removed.
+	(clp_app_mgr_get_active_instances_of_app): Instance name prefixd with
+	app name. 
+	(clp_app_mgr_get_priority): Commented code cleaned up.
+	(clp_app_mgr_get_installed_apps): Variable name changed properly.
+
+2008-07-22  Chirayu Shah <chirayu.shah@azingo.com>
+		Reviewed By: Kaustubh Atrawalkar
+	
+	* tools/pid-to-name.c : Utility added for conversion of PID to
+	Application name.
+	* tools/Makefile.am : Compilation steps for utility added.
+
+2008-07-21  Kaustubh Atrawalkar  <kaustubh.atrawalkar@azingo.com>
+
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_exec_application),
+	(clp_app_mgr_exec_argv): Removed exiting of app if launch fails.
+	Returning proper values.
+
+2008-07-21  	Chirayu Shah <chirayu.shah>
+		Reviewed By: Kaustubh Atrawalkar 
+		
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_get_services):
+	Completed the definition for this funtion. ( Fix for Bug #4867).
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_handle_file):
+	Completed the definition of this function. ( Fix for Bug #4870).
+	* src/limo-app-mgr-lib.c: (clp_app_mgr_handle_string):
+	Completed the definition of this function.
+
+2008-07-21	Kaustubh Atrawalkar <kaustubh.atrawalkar@azingo.com>
+
+	* src/limo-app-mgr-lib.c: FOCUS_GAIND, FOCUS_LOST signals converted to
+	UA_GAIND, UA_LOST listening on windowmanager interface directly.
+	clp_app_mgr_get_priority changed to read from gconf directly.
+
+
+2008-07-17	Kaustubh Atrawalkar <kaustubh.atrawalkar@azingo.com>
+	
+	* src/limo-app-mgr-lib.c: AppMgrAppLaunch changed to
+	AppMgrAppLaunchWithArgs. EXEC signal added to service invoke.
+
+2008-07-16      Kaustubh Atrawalkar <kaustubh.atrawalkar@azingo.com>
+
+	* src/limo-app-mgr-lib.c: exec fix. Handled exec on already running
+	apps.
+
+2008-07-16	Kaustubh Atrawalkar <kaustubh.atrawalkar@azingo.com>
+	
+	* src/limo-app-mgr-lib.c: get_installed_apps fix.
+
+2008-07-14 Chirayu Shah <chirayu.shah@azingo.com>
+
+	* src/limo-amm-mgr-lib.c: (clp_app_mgr_get_active_apps):
+	Fix for Bug #3536. The condition in the if(return_code) is changed to if(!return_code)
+	as return_code becomes 0 on success. 
+
+2008-07-02  Kaustubh Atrawalkar <kaustubh.atrawalkar@azingo.com>
+	
+	* src/limo-app-mgr-lib.c: New file added. Modified all the APIs to interact 
+	with limo app server. 
+	* src/Makefile.am: Upadted to build libappmgr.so with limo lib
+	
+2098-06-30  Kaustubh Atrawalkar <kaustubh.atrwalkar@azingo.com>
+
+	* appmgr.pc.in: 
+	* configure.ac: Removed the libnotify dependancy.
+
+2008-06-10  Abhiraj  <abhiraj.butala@azingo.com>
+
+	* src/clp-app-mgr-daemon.c: (clp_app_mgr_exec_internal):
+	Fix for Bug #3892. When the application is execed with exactly one
+	argument, the appmgr daemon execed that app without any
+	arguments. Fixed this bug.
+
+2008-06-03  Kaustubh Atrawalkar <kaustubh.atrwalkar@azingo.com>
+
+	* src/clp-app-mgr-lib.h: Unused ClpAppMgrPausedOnResource declaration
+	removed.
+
+2008-05-29  Kaustubh Atrawalkar <kaustubh.atrawalkar@azingo.com>
+	
+	* src/clp-app-mgr-lib.c: clp_app_mgr_apply_theme :
+	Theme application changed from dbus call to gtk event sending.
+	* src/clp-app-mgr-daemon.h: inconsistancy in different signedness
+	removed.
+	* src/clp-app-mgr-daemon.c: unused variables from last gtk dependancy 
+	commit commented.
+
+2008-05-29  Kaustubh Atrawalkar <kaustubh.atrawalkar@azingo.com>
+
+	* src/clp-app-mgr-daemon.c: gtk dependacy removed for eabi tool chain
+	all gtk calls are commented out.
+
+2008-05-26  Abhiraj  <abhiraj.butala@azingo.com>
+
+	* src/clp-app-mgr-daemon.c: (forceful_power_off_handler),
+	(clp_app_mgr_daemon_power_off_handler):
+	The forceful shutdown timeout value is picked up from gconf repository now. If
+	it is not set, then the value is set to 15 seconds in gconf repository
+
+2008-05-15  Shine Jose  <shine.jose@azingo.com>
+
+	reviewed by: <abhiraj.butala@azingo.com>
+
+	* src/clp-app-mgr-config.h:
+	* src/clp-app-mgr-lib.c: (clp_app_mgr_wm_toggle_fullscreen_window):
+	* src/clp-app-mgr.h:
+	Added clp_app_mgr_wm_toggle_fullscreen_window() API which
+	wraps 'ToggleFullscreen' method call of window manager.
+
+2008-05-13  Abhiraj  <abhiraj.butala@azingo.com>
+
+	reviewed by: Amol Kulkarni <amol.kulkarni@azingo.com>
+
+	* src/clp-app-mgr-daemon.c: (clp_app_mgr_exec_internal):
+	changed the progress bar position to (gdk_screen_height() - 25 - 6 - 2)
+
+2008-03-14  Abhiraj  <abhiraj.butala@azingo.com>
+
+	* src/clp-app-mgr-lib.c: (clp_app_mgr_parse_installed_app_list):
+
+	The MenuPath is searched as a prefix with the applications menupath
+	instead of strcmp().
+
+2008-02-07  Abhiraj  <abhiraj.butala@azingo.com>
+
+	reviewed by: Gaurav Roy <gaurav.roy@azingo.com>
+
+	* src/clp-app-mgr-daemon.c: (forceful_power_off_handler),
+	(clp_app_mgr_daemon_power_off_handler):
+	Forceful poweroff is done after 15 sec after poweroff handler is
+	invoked.
+
+2008-02-04  Abhiraj <abhiraj.butala@azingo.com>
+
+	* src/clp-app-mgr-config.h:
+	* src/clp-app-mgr-lib.c:
+	(clp_app_mgr_wm_get_top_window_of_application):
+	* src/clp-app-mgr.h:
+	
+	Added clp_app_mgr_wm_get_top_window_of_application() API which wraps
+	'GetWindow' method call of window manager.
+
+2008-01-29  Kaustubh Atrawalkar <kaustubh.atrawalkar@azingo.com>
+	
+	* src/clp-app-mgr-daemon.c: Resource handling function definations and
+	support removed.
+	* src/clp-app-mgr-lib.c: Audio manger support removed.
+	clp_app_mgr_stop API added.
+	* src/clp-app-mgr-daemon.h: Resource handling declaration removed.
+	* src/clp-app-mgr-config.h: Removed resource handling definations.
+	* src/clp-app-mgr-lib.h: Application stop support added. 
+	* src/clp-app-mgr-export.xml: Resource handling support removed.
+
+2008-01-29  Kaustubh Atrawalkar <kaustubh.atrawalkar@azingo.com>
+	
+	* src/clp-app-mgr-daemon.c: Added support for folder's desktop file
+	addition in registry. (for which exec name is "NULL")
+
+2008-01-26  Abhiraj  <abhiraj.butala@azingo.com>
+
+	* images/transition_window.ui:
+
+	Changed the default_height of the transition window (progress bar) to
+	10
+
+2008-01-25 Gaurav Roy <gaurav.roy@azingo.com>
+
+	* src/clp-app-mgr-lib.c:
+	Fix for fixed sized library exec handler	
+
+2008-01-25  Abhiraj  <abhiraj.butala@azingo.com>
+
+	* src/clp-app-mgr-daemon.c: (clp_app_mgr_exec_internal):
+
+	The transition window is shown only when the application is execed for
+	the first time. For restore of applications, transition window is not
+	shown now.
+
+2008-01-25 Kaustubh Atrawalkar <kaustubh.atrawalkar@azingo.com>
+
+	* src/clp-app-mgr-daemon.c: Added support to read MenuPos from gconf
+	registry and send the same to get_installed_apps call.
+	* src/clp-app-mgr-lib.c: Added support to read MenuPos from
+	get_installed_apps and sort the list according to the same.
+	* src/clp-app-mgr-daemon.h:
+	* src/clp-app-mgr.h: Added the menupos variable to respective
+	structure.
+	* src/clp-app-mgr-export.xml: Updated the GetInstalledApps signature.
+
+
+2008-01-25  Abhiraj  <abhiraj.butala@azingo.com>
+
+	reviewed by: Gaurav Roy <gaurav.roy@azingo.com>
+
+	* src/clp-app-mgr-lib.c: (clp_app_mgr_exec_application),
+	(clp_app_mgr_exec_argv):
+	* src/clp-app-mgr-lib.h:
+	* tools/clp-app-mgr-app-launcher.c: (main):
+
+	Added new API for doing exec of applications which takes arguments in
+	argc and argv[] format. Removed app-launcher's registration with
+	application manager which is not required.
+
+2008-01-24  Abhiraj  <abhiraj.butala@azingo.com>
+
+	* Makefile.am:
+	* configure.ac:
+	* images/Makefile.am:
+	* images/transition_window.ui:
+	* src/Makefile.am:
+	* src/clp-app-mgr-daemon.c: (send_dbus_signal), (message_func),
+	(send_app_death_signal), (transition_window_hide_handler),
+	(clp_app_mgr_exec_internal), (destroy_midlets), (destroy_appinfo),
+	(clp_app_mgr_daemon_clear_appinfo):
+	* src/transition_window.ui:
+
+	Added support for transition window again after modifications. Added 'images' 
+	folder,	added noimage.png file and moved transition_window.ui and sandclock.gif to
+	'images' folder.
+
+2008-01-19  Abhiraj  <abhiraj.butala@azingo.com>
+
+	* src/clp-app-mgr-daemon.c: (send_dbus_signal), (message_func),
+	(clp_app_mgr_exec_internal), (clp_app_mgr_daemon_clear_appinfo):
+
+	Reverting back transition window related changes.
+
+2008-01-19  Abhiraj  <abhiraj.butala@azingo.com>
+
+	* src/clp-app-mgr-daemon.c: (clp_app_mgr_exec_internal),
+	(clp_app_mgr_daemon_clear_appinfo):
+
+	Support to minimize the transition window if the application being
+	launched crashes.
+
+2008-01-18  Abhiraj  <abhiraj.butala@azingo.com>
+
+	* src/clp-app-mgr-lib.c: (clp_app_mgr_exec_application):
+	* tools/clp-app-mgr-app-launcher.c: (main):
+
+	The arguments received as single string from app-launcher are now
+	split and sent as separate strings.
+
+2008-01-18  Abhiraj  <abhiraj.butala@azingo.com>
+
+	* src/clp-app-mgr-daemon.c:(main): Missing NULL termination to
+	g_strconcat() added.
+	  
+	* tools/clp-app-mgr-app-launcher.c: (main):
+
+	Added support to parse any number of arguments to application being
+	launched by app-launcher
+
+2008-01-18  Abhiraj  <abhiraj.butala@celunite.com>
+
+	* src/Makefile.am:
+	* src/clp-app-mgr-daemon.c: (send_dbus_signal), (message_func),
+	(clp_app_mgr_exec_internal):
+	* src/transition_window.ui: (Added)
+	* src/sandclock.gif: (Added)
+
+	Added support to display transition window before application
+	start-up. Added a ui file which defines the transition window 
+	which is shown in the window during application start-up. The window
+	is a splashscreen with a gif image of sandclock in it. 
+
+2008-01-04  Abhiraj  <abhiraj.butala@celunite.com>
+
+	* tools/clp-app-mgr-app-launcher.c: (main):
+	Removed prints from app-launcher which are not required.
+
+2007-12-19  Kaustubh Atrawalkar  <kaustubh.atrawalkar@celunite.com>
+
+	reviewed by: Gaurav Roy 
+
+	* src/clp-app-mgr-lib.c: (clp_app_mgr_parse_installed_app_list):
+	Updated appclass parsing.
+
+2007-11-29  Abhiraj  <abhiraj.butala@celunite.com>
+
+
+	* src/clp-app-mgr-config.h:
+	* src/clp-app-mgr-daemon.c: (clp_app_mgr_daemon_app_init_handler),
+	(clp_app_mgr_daemon_app_close_by_name_handler),
+	(clp_app_mgr_daemon_app_close_handler),
+	(clp_app_mgr_daemon_clear_appinfo):
+	* src/clp-app-mgr-daemon.h:
+	* src/clp-app-mgr-lib.c: (clp_app_mgr_init),
+	(clp_app_mgr_async_init), (clp_app_mgr_post_init),
+	(clp_app_mgr_register_pause_handler),
+	(clp_app_mgr_register_resume_handler),
+	(clp_app_mgr_register_death_handler),
+	(clp_app_mgr_register_stop_handler),
+	(clp_app_mgr_register_rotate_handler),
+	(clp_app_mgr_register_exec_handler), (message_func),
+	(clp_app_mgr_wm_register_focus_gained_handler),
+	(clp_app_mgr_wm_register_focus_lost_handler),
+	(clp_app_mgr_wm_fullscreen_window):
+	* src/clp-app-mgr-lib.h:
+	* src/clp-app-mgr.h:
+
+	Merging changes for performance enhancements and addition of window
+	manager API from FW2A branch.
+	
+2007-11-21  Kaustubh Atrawalkar <kaustubh.atrawalkar@celunite.com>
+
+	Reviewed By : Gaurav Roy
+	
+	* configure.ac: Removed libtool dependancy
+
+2007-11-20  Kaustubh Atrawalkar <kaustubh.atrawalkar@celunite.com>
+
+	Merged changes from branches/devel and branches/FW2A	
+
+2007-11-20  Kaustubh Atrawalkar <kaustubh.atrawalkar@celunite.com>
+
+	* src/clp-app-mgr-daemon.c: Gconf updated signal handling removed and
+	notification handler added.
+	* src/clp-app-mgr-config.h: GConfUpdated signal defination removed.
+
+2007-11-06  gaurav,,,  <gaurav@gaurav-laptop>
+
+	* src/clp-app-mgr-daemon.c:
+	(clp_app_mgr_daemon_handle_content_handler): Added another error
+	message for 2887
+
+2007-11-06  gaurav,,,  <gaurav@gaurav-laptop>
+
+	* src/clp-app-mgr-daemon.c:
+	(clp_app_mgr_daemon_handle_content_handler): Bug # 2887
+	Fix for improper mangling of params (param_cnt) in handle_content
+
+2007-11-05  Gaurav Roy  <gaurav.roy@celunite.com>
+
+	reviewed by: Ramana Radhakrishnan
+
+	* autogen.sh:
+	* configure.ac:
+	* src/Makefile.am:
+	Inserted lib depends for glib and dbus
+
+2007-11-05  Gaurav Roy  <gaurav.roy@celunite.com>
+
+
+	* src/clp-app-mgr-config.h:
+	* src/clp-app-mgr-daemon.c: (clp_app_mgr_exec_internal),
+	(clp_app_mgr_daemon_app_init_handler),
+	(clp_app_mgr_daemon_app_close_handler),
+	(clp_app_mgr_daemon_clear_appinfo),
+	(clp_app_mgr_daemon_request_resource_handler),
+	(clp_app_mgr_daemon_release_resource_handler):
+	* src/clp-app-mgr-daemon.h:
+	* src/clp-app-mgr-export.xml:
+	* src/clp-app-mgr-lib.c: (clp_app_mgr_register_pause_handler),
+	(clp_app_mgr_register_resume_handler), (clp_app_mgr_get_audio),
+	(clp_app_mgr_release_audio), (DBusSetParam), (message_func):
+	* src/clp-app-mgr-lib.h:
+
+	Added Audio Manager functionality
+	Added environment variable reading for application execution
+
+2007-10-22  Gaurav Roy  <gaurav@gaurav-laptop>
+
+	reviewed by: Kaustubh Atrawalkar
+
+	* src/clp-app-mgr-config.h: Added GCONF updated signal
+	* src/clp-app-mgr-daemon.c: 
+	(check_app_registry),       Java Related Updates for exec-type,suiteid 
+	(if_valid_app),		    Group ID is used for app selection
+	(message_func), 	    GConf update signal (temp till cant find a
+	way for gconf)
+	(send_exec_restore), 	    Java related phoneMe restoration.
+	(print_application_node),   helper func for debugging
+	(clp_app_mgr_update_mime_application_cache),   Changes for quick Gconf updates.
+	(clp_app_mgr_update_application_cache),        Changes for Java and
+	quick application cache updates
+	(clp_app_mgr_exec_internal), 			Added Group ID,
+	phoneME start and Java midlet launch and param fix
+	(clp_app_mgr_daemon_app_init_handler),		Java midlet init
+	processing
+	(clp_app_mgr_daemon_app_close_by_name_handler), Closing of Java
+	Midlets
+	(clp_app_mgr_daemon_app_close_handler),		Closing of midlets.
+	(clp_app_mgr_daemon_app_exec_handler), 		Java midlet related
+	request passing extra info to exec_internal
+	(fill_appnode),					fill appnode for
+	get_installed_apps -- new static function
+	(clp_app_mgr_daemon_get_installed_apps_handler), Changes related to
+	Java and MenuPath in get_installed_apps_handler
+	(clp_app_mgr_get_active_window_list),   	Get Z order from
+	window manager and reconstruct info
+	(fill_active_app),				New helper fnc for
+	get_installed_apps
+	(clp_app_mgr_daemon_get_active_apps_handler),   Active Apps now
+	queries the WM synchronously and then fills in appinfo
+	(clp_app_mgr_daemon_restore_app_handler),	Restoration based on
+	appnames is brought back
+	(clp_app_mgr_send_app_list_change_signal),	changes in structure
+	of applist change signal
+	(clp_app_mgr_daemon_get_priority_handler), 	debug prits here
+	(clp_app_mgr_daemon_handle_content_handler), 	cmd line param fix
+	(main)						Change hardcode to
+	preprocessor define
+	:
+	* src/clp-app-mgr-daemon.h:			Struct Upgrades for
+	active_apps and installed_apps.
+	* src/clp-app-mgr-export.xml:			Param updgrades for
+	installed apps
+	* src/clp-app-mgr-lib.c: 
+	(clp_app_mgr_exec_application),			Cmd Line Param fix
+	(message_func), 
+	(clp_app_mgr_parse_services_list),
+	(clp_app_mgr_service_invoke),
+	(clp_app_mgr_parse_installed_app_list),		GlobalMenu Path 
+	(clp_app_mgr_send_message):			Param Fix
+	* src/clp-app-mgr.h:
+
+2007-10-01	Kaustubh Atrawalkar <kaustubh.atrawalkar@celunite.com>
+
+		* src/clp-app-mgr-daemon.c: Residual pausedonresource &
+		pause_status variable.
+		(destroy_midlets): exec_type -> exectype
+		* src/clp-app-mgr-daemon.h: Added declartion of the internal
+		functions destroy_midlets & destroy_appinfo
+		* src/clp-app-mgr-lib.c: Bug fix 2331. Added duplication of
+		va_list varible to avoid loss of arguments in re-exec.
+		* src/clp-app-mgr-lib.h: Change of prototype as per change in
+		lib.c
+
+2007-09-27	Kaustubh Atrawalkar <kaustubh.atrawalkar@celunite.com>
+		Reviewed By: Gaurav Roy <gaurav.roy@celunite.com>
+
+		* src/clp-app-mgr-daemon.c (check_app_registry): SuiteID and
+		Class name parsing for application registry added
+		(update_application_cache): Optimized the function & added
+		SuiteID and class name parsing.
+		(send_jvm_signal): New func added to send signal to Java VM.
+		(clp_app_mgr_exec_internal): Updated the func to exec the java
+		apps with JVM
+		(clp_app_mgr_close_by_name_handler):Handler for the method
+		call AppCloseByName added.
+		Removed get_paused_on_resource handler.
+		* src/clp-app-mgr-daemon.h: Suite ID and class name added in
+		the application info (for java apps), Handler for
+		clp_app_mgr_close_by_name.
+		* src/clp-app-mgr-lib.c: Documentation updated to remove the
+		doxygen errors, New API added for clp_app_mgr_close_by_name.
+		* src/clp-app-mgr-lib.h: clp_app_mgr_close_by_name API
+		declaration added.
+		* src/clp-app-mgr-config.h: Java related #defines and signals
+		added. AppCloseByName method added.
+		* src/clp-app-mgr-export.xml: New method call added for
+		AppCloseByName.
+		* docs : New directory added for docs
+		* docs/Doxyfile : Updated the doxyfile
+		* docs/header.html, docs/footer.html : Added the header &
+		footer notes for HTML documentations.
+
+
+2007-09-24  Abhiraj  <abhiraj.butala@celunite.com>
+
+	* src/clp-app-mgr-daemon.c: (clp_app_mgr_update_application_cache):
+	The Key Name in gconf repository is 'ExeType' and not 'ExecType'.
+	Making appropriate changes. 
+
+2007-09-19  Abhiraj  <abhiraj.butala@celunite.com>
+	Reviewed by: Kaustubh <kaustubh.atrawalkar@celunite.com>
+
+	* src/clp-app-mgr-config.h: Macros for Methods exported
+	* src/clp-app-mgr-daemon.c:
+	(clp_app_mgr_daemon_get_num_of_active_apps_handler),
+	(clp_app_mgr_daemon_get_num_of_active_inst_of_app_handler) ,
+	(clp_app_mgr_daemon_is_app_active_handler),
+	(clp_app_mgr_daemon_get_application_id_handler),
+	(clp_app_mgr_daemon_get_active_instances_of_app_handler),
+	(clp_app_mgr_daemon_get_instance_info_handler): Implementations for
+	above handler functions
+	* src/clp-app-mgr-daemon.h: Headers for above handler functions
+	* src/clp-app-mgr-export.xml: Six mew methods exported
+	* src/clp-app-mgr-lib.c: 
+	(clp_app_mgr_parse_app_list),
+	(clp_app_mgr_parse_services_list),
+	(clp_app_mgr_get_num_of_active_apps),
+	(clp_app_mgr_get_num_of_active_instances_of_app),
+	(clp_app_mgr_is_app_active), (clp_app_mgr_get_application_id),
+	(clp_app_mgr_parse_active_inst_of_app_list),
+	(clp_app_mgr_get_active_instances_of_app),
+	(clp_app_mgr_parse_instance_info),
+	(clp_app_mgr_get_application_instance_info): added the above APIs for
+	LIMO compliance
+	* src/clp-app-mgr.h: Declarations of APIs added
+	* tests/testservices.c: (main): Sample application to test above APIs
+
+2007-09-19  Ambarish Pathak  <ambarish.pathak@celunite.com>
+
+	reviewed by: <gaurav.roy@celunite.com>
+
+	* src/clp-app-mgr-daemon.c: (clp_app_mgr_daemon_clear_appinfo): Send
+	the app_list_change signal on sig_child along with the death signal.
+
+2007-09-18  Abhiraj  <abhiraj.butala@celunite.com>
+
+	reviewed by: <ambarish.pathak@celunite.com>
+
+	* src/Makefile.am:
+	* src/clp-app-mgr-daemon.c:
+	(clp_app_mgr_update_mime_application_cache): Reverting the earlier fix
+	since OSIM demo doesn't expect this to be present.
+
+2007-09-18 	Abhiraj Butala <abhiraj.butala@celunite.com>
+		
+		* src/clp-app-mgr-daemon.c: Fixed bugs 2301 and 2302. 
+	  	update_mime_application_cache() now uses 'Command' 
+		instead of 'Name' to find the node in Installed 
+		Applications' Hash table.  
+
+2007-09-18  Ramana Radhakrishnan  <ramana.radhakrishnan@celunite.com>
+
+	* src/clp-app-mgr-daemon.c: Remove unused java_vm_inited. 
+	* src/Makefile.am (CFLAGS): Add -Wall and -Werror.
+	(LDFLAGS): Remove -Wall. 
+
+2007-09-17	Kaustubh Atrawalkar <kaustubh.atrawalkar@celunite.com>
+
+		* src/clp-app-mgr-daemon.c (if_valid_app): logging commented
+		as the func get called from sig_child handler.
+
+2007-09-14	Kaustubh Atrawalkar <kaustubh.atrawalkar@celunite.com>
+		
+		* src/clp-app-mgr-daemon.c (visibility_handler): sending the
+		app_list_change_signal when visibility of the application
+		changes.
+
+2007-09-14	Kaustubh Atrawalkar <kaustubh.atrawalkar@celunite.com>
+		
+		* src/clp-app-mgr-daemon.h: 'exectype' field added in
+		ClpAppInfo struct
+		* src/clp-app-mgr-daemon.c: removed unnecessary spaces and
+		commented sig_handler logs.
+		(check_app_registry): changed the way of getting registry 
+		info in init_handler. Also picks up the exectype now.
+		(message_func): optimized for checking the valid_app
+		(print_app_node): removed unnecessary \n
+		(update_application_cache): g_malloc -> g_malloc0
+		(init_handler): app_reg check optimized.
+		(destroy_app_info): new func added to free the appinfo struct
+
+2007-09-14	Abhiraj Butala <abhiraj.butala@celunite.com>
+		Reviewed by: Gaurav Roy <gaurav.roy@celunite.com>
+		
+		* src/clp-app-mgr-daemon.c: For multiple instance
+		applications, pid is appended (instead of appending a global count
+		incremented by daemon) to application name to create
+		instance_name which will act as application id. For single
+		instance application, instance_name will be same as
+		application name. 
+		* src/clp-app-mgr-daemon.h: 'instance_name' field added in
+		ClpAppInfo struct
+		* src/clp-app-mgr-lib.c: Similar changes of instance_name at
+		lib side.
+
+2007-09-14	Abhiraj Butala <abhiraj.butala@celunite.com>
+
+		* src/clp-app-mgr-daemon.c: CLP_APPMGR_INFO* Macros instead of
+		g_print used to make consistent with logging interface.
+		* src/clp-app-mgr-lib.c: CLP_APPMGR_INFO* Macros instead of
+		g_print used to make consistent with logging interface.
+
+2007-09-12	Kaustubh Atrawalkar <kaustubh.atrawalkar@celunite.com>
+
+		* src/clp-app-mgr-daemon.h: Application info will have
+		"immortal" and "exec_type" information.
+		* src/clp-app-mgr-deamon.c: Application with immortality=TRUE
+		gets spawned again.
+
+2007-09-11	Kaustubh Atrawalkar <kaustubh.atrawalkar@celunite.com>
+
+		* src/clp-app-mgr-daemon.c (update_application_cache) :
+		default icon is updated in app cache if not mention in .desktop file.
+
+2007-09-11	Kaustubh Atrawalkar <kaustubh.atrawalkar@celunite.com>
+
+		* src/clp-app-mgr-daemon.c (check_app_registry): Registry
+		check error fixed. Default values accumulated.
+
+2007-09-10	Abhiraj Butala <abhiraj.butala@celunite.com>
+
+		* src/clp-app-mgr-daemon.h:nodisplay flag added in ClpAppNode
+		struct
+		* src/clp-app-mgr-daemon.c:support to read per app NoDisplay key from
+		gconf repository and send it via GetInstalledApps dbus method
+		* src/clp-app-mgr-lib.c:support to parse NoDisplay flag sent
+		by GetInstalledApps Method and return it in the struct
+		* src/clp-app-mgr.h:nodisplay flag added in
+		ClpAppMgrInstalledApps struct 
+		* src/clp-app-mgr-export.xml: GetInstalledApps now also
+		returns a boolean
+
+
+2007-09-07	Kaustubh Atrawalkar <kaustubh.atrawalkar@celunite.com>
+		Reviewed by : Gaurav Roy <gaurav.roy@celunite.com>
+
+		* src/clp-app-mgr-lib.c: parsing installed_apps error fixed.
+		
+2007-09-07	Kaustubh Atrawalkar  <kaustubh.atrawalkar@celunite.com>
+		Reviewed by : Gaurav Roy <gaurav.roy@celunite.com>
+
+		* src/clp-app-mgr-lib.c: Doxygen comments corrected.
+		get_installed_apps - replaced app execname with appname & app name with title.
+		* src/clp-app-mgr-daemon.h: ClpAppNode - replaced command with title.
+		ClpAppInfo - removed execname.
+		* src/clp-app-mgr-daemon.c: app name is now same as execname.
+		Removed execname & application name (as in .desktop file) is
+		retrived as app title.
+
+2007-09-06  	Ramana Radhakrishnan  <ramana.radhakrishnan@celunite.com>
+
+		* src/clp-app-mgr-lib.c (clp_app_mgr_init): Call libsegfault.
+		* src/clp-app-mgr-config.h (load_libsegfault): New. Load libsegfault.
+		(dlfcn.h): Include. 
+		* src/clp-app-mgr-daemon.c (main): Add comment about load_libsegfault.
+		* src/Makefile.am (LDFLAGS): Add -ldl as dependency.
+
+2007-09-06	kaustubh atrawalkar <kaustubh.atrawalkar@celunite.com>
+		
+		* src/clp-app-mgr-daemon.c: sig_child logging removed
+
+2007-09-06	kaustubh atrawalkar <kaustubh.atrawalkar@celunite.com>
+
+		* src/clp-app-mgr-daemon.c: message_func return values fixed.
+		execname assert for memory fixed.
+
+2007-09-04	kaustubh atrawalkar <kaustubh.atrawalkar@celunite.com>
+
+		* src/clp-app-mgr-daemon.c: Buffer overlflow bug 2198 fixed.
+
+2007-09-03	kaustubh atrawalkar <kaustubh.atrawalkar@celunite.com>
+
+		* src/clp-app-mgr-daemon.h: exec name changed from fixed size
+		char array to gchar * pointer.
+		* src/clp-app-mgr-daemon.c: application registery picks up
+		icon and exec name from .desktop file. Icon bug fixed.
+	
+2007-08-31	kaustubh atrawalkar <kaustubh.atrawalkar@celunite.com>
+
+		* src/clp-app-mgr-daemon.c: Fixing send_app_list_change_signal error
+
+2007-08-31	kaustubh atrawalkar <kaustubh.atrawalkar@celunite.com>
+		
+		* src/clp-app-mgr-lib.c: Fixing register_app_list_change_handler 
+					 error (varible missmatch removed)
+
+2007-08-31	kaustubh atrawalkar <kaustubh.atrawalkar@celunite.com>
+
+		* src/clp-app-mgr-lib.h: clp_app_mgr_register_app_list_change_handler added
+		* src/clp-app-mgr-lib.c: app_list_change signal handling support added, 
+					 changed the varible names to appropriate names
